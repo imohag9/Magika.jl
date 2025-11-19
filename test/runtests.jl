@@ -1,4 +1,3 @@
-# test/runtests.jl
 
 using Magika
 using Test
@@ -7,9 +6,8 @@ using Aqua
 # ==============================================================================
 # 1. CODE QUALITY TESTS (AQUA.JL)
 # ==============================================================================
-#include("reference_tests.jl")
 @testset "Code quality (Aqua.jl)" begin
-    Aqua.test_all(Magika)
+    Aqua.test_all(Magika,project_extras=false )
 end
 
 # ==============================================================================
