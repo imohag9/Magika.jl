@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Advanced Usage · Magika.jl</title><meta name="title" content="Advanced Usage · Magika.jl"/><meta property="og:title" content="Advanced Usage · Magika.jl"/><meta property="twitter:title" content="Advanced Usage · Magika.jl"/><meta name="description" content="Documentation for Magika.jl."/><meta property="og:description" content="Documentation for Magika.jl."/><meta property="twitter:description" content="Documentation for Magika.jl."/><meta property="og:url" content="https://imohag9.github.io/Magika.jl/advanced_usage/"/><meta property="twitter:url" content="https://imohag9.github.io/Magika.jl/advanced_usage/"/><link rel="canonical" href="https://imohag9.github.io/Magika.jl/advanced_usage/"/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">Magika.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><a class="tocitem" href="../basic_usage/">Basic Usage</a></li><li class="is-active"><a class="tocitem" href>Advanced Usage</a><ul class="internal"><li><a class="tocitem" href="#Symbolic-Link-Handling"><span>Symbolic Link Handling</span></a></li><li><a class="tocitem" href="#Batch-Processing"><span>Batch Processing</span></a></li><li><a class="tocitem" href="#Custom-Confidence-Thresholds"><span>Custom Confidence Thresholds</span></a></li><li><a class="tocitem" href="#Integration-with-File-Processing-Pipelines"><span>Integration with File Processing Pipelines</span></a></li><li><a class="tocitem" href="#Performance-Optimization"><span>Performance Optimization</span></a></li><li><a class="tocitem" href="#Handling-Edge-Cases"><span>Handling Edge Cases</span></a></li></ul></li><li><a class="tocitem" href="../understanding_results/">Understanding Results</a></li><li><a class="tocitem" href="../api/">API Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Advanced Usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Advanced Usage</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/imohag9/Magika.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/imohag9/Magika.jl/blob/main/docs/src/advanced_usage.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Advanced-Usage"><a class="docs-heading-anchor" href="#Advanced-Usage">Advanced Usage</a><a id="Advanced-Usage-1"></a><a class="docs-heading-anchor-permalink" href="#Advanced-Usage" title="Permalink"></a></h1><p>This guide covers advanced features and configuration options for Magika.jl.</p><h2 id="Symbolic-Link-Handling"><a class="docs-heading-anchor" href="#Symbolic-Link-Handling">Symbolic Link Handling</a><a id="Symbolic-Link-Handling-1"></a><a class="docs-heading-anchor-permalink" href="#Symbolic-Link-Handling" title="Permalink"></a></h2><p>By default, Magika follows symbolic links to identify the target file type. You can change this behavior:</p><pre><code class="language-julia hljs"># Create a detector that doesn&#39;t follow symbolic links
+m = MagikaConfig(no_dereference=true)
+
+# This will identify as a symlink rather than following to the target
+result = identify_path(m, &quot;my_symlink&quot;)</code></pre><h2 id="Batch-Processing"><a class="docs-heading-anchor" href="#Batch-Processing">Batch Processing</a><a id="Batch-Processing-1"></a><a class="docs-heading-anchor-permalink" href="#Batch-Processing" title="Permalink"></a></h2><p>Magika is optimized for processing multiple files efficiently:</p><pre><code class="language-julia hljs">function batch_identify(paths::Vector{String})
+    m = MagikaConfig()
+    results = Dict{String, MagikaResult}()
+    
+    for path in paths
+        results[path] = identify_path(m, path)
+    end
+    
+    return results
+end
+
+# Example usage
+files = [&quot;file1.txt&quot;, &quot;image.jpg&quot;, &quot;document.pdf&quot;]
+results = batch_identify(files)
+
+for (path, result) in results
+    if is_ok(result)
+        println(&quot;$path: $(result.prediction.output.description)&quot;)
+    else
+        println(&quot;$path: Error - $(result.status)&quot;)
+    end
+end</code></pre><h2 id="Custom-Confidence-Thresholds"><a class="docs-heading-anchor" href="#Custom-Confidence-Thresholds">Custom Confidence Thresholds</a><a id="Custom-Confidence-Thresholds-1"></a><a class="docs-heading-anchor-permalink" href="#Custom-Confidence-Thresholds" title="Permalink"></a></h2><p>While Magika uses built-in thresholds for each content type, you can implement custom filtering:</p><pre><code class="language-julia hljs">function identify_with_custom_threshold(m::MagikaConfig, path::String, min_score::Float32=0.8f0)
+    result = identify_path(m, path)
+    
+    if is_ok(result) &amp;&amp; result.prediction.score &gt;= min_score
+        return result
+    else
+        # Return a generic result for low confidence predictions
+        generic_result = MagikaResult(
+            path,
+            OK,
+            MagikaPrediction(
+                m._cts_infos[UNDEFINED],
+                m._cts_infos[result.prediction.output.is_text ? TXT : UNKNOWN],
+                result.prediction.score,
+                LOW_CONFIDENCE
+            )
+        )
+        return generic_result
+    end
+end</code></pre><h2 id="Integration-with-File-Processing-Pipelines"><a class="docs-heading-anchor" href="#Integration-with-File-Processing-Pipelines">Integration with File Processing Pipelines</a><a id="Integration-with-File-Processing-Pipelines-1"></a><a class="docs-heading-anchor-permalink" href="#Integration-with-File-Processing-Pipelines" title="Permalink"></a></h2><p>Here&#39;s an example of integrating Magika with a file processing pipeline:</p><pre><code class="language-julia hljs">function process_file_by_type(path::String)
+    m = MagikaConfig()
+    result = identify_path(m, path)
+    
+    if !is_ok(result)
+        error(&quot;Could not identify file type: $(result.status)&quot;)
+    end
+    
+    content_type = result.prediction.output.label
+    
+    try
+        # Process based on detected content type
+        if content_type == ContentTypeLabel(&quot;json&quot;)
+            println(&quot;Processing as JSON file&quot;)
+            data = JSON3.read(read(path, String))
+            # Process JSON data...
+            
+        elseif content_type == ContentTypeLabel(&quot;csv&quot;)
+            println(&quot;Processing as CSV file&quot;)
+            df = CSV.read(path, DataFrame)
+            # Process CSV data...
+            
+        elseif content_type == ContentTypeLabel(&quot;png&quot;) || content_type == ContentTypeLabel(&quot;jpeg&quot;)
+            println(&quot;Processing as image file&quot;)
+            img = load(path)
+            # Process image data...
+            
+        else
+            println(&quot;Generic processing for $(result.prediction.output.description)&quot;)
+            content = read(path, String)
+            # Generic processing...
+        end
+        
+    catch e
+        # Fallback if content type detection was incorrect
+        println(&quot;Error during processing: $e&quot;)
+        println(&quot;Attempting generic processing...&quot;)
+        content = read(path, String)
+        # Generic processing fallback...
+    end
+end</code></pre><h2 id="Performance-Optimization"><a class="docs-heading-anchor" href="#Performance-Optimization">Performance Optimization</a><a id="Performance-Optimization-1"></a><a class="docs-heading-anchor-permalink" href="#Performance-Optimization" title="Permalink"></a></h2><p>For high-throughput applications, reuse the same MagikaConfig instance:</p><pre><code class="language-julia hljs">function high_throughput_processor(file_paths::Vector{String})
+    # Create ONE detector instance for all files
+    m = MagikaConfig(prediction_mode=MEDIUM_CONFIDENCE)
+    
+    results = []
+    for path in file_paths
+        push!(results, identify_path(m, path))
+    end
+    
+    return results
+end</code></pre><h2 id="Handling-Edge-Cases"><a class="docs-heading-anchor" href="#Handling-Edge-Cases">Handling Edge Cases</a><a id="Handling-Edge-Cases-1"></a><a class="docs-heading-anchor-permalink" href="#Handling-Edge-Cases" title="Permalink"></a></h2><pre><code class="language-julia hljs">function robust_file_identifier(path::String)
+    m = MagikaConfig()
+    
+    # Handle non-existent files
+    if !ispath(path)
+        return MagikaResult(path, FILE_NOT_FOUND_ERROR)
+    end
+    
+    # Handle permission issues with try-catch
+    try
+        return identify_path(m, path)
+    catch e
+        if isa(e, SystemError) &amp;&amp; e.errnum == 13
+            return MagikaResult(path, PERMISSION_ERROR)
+        end
+        rethrow(e)
+    end
+end</code></pre><p>These advanced patterns demonstrate how to use Magika.jl in production environments with robust error handling and performance considerations.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../basic_usage/">« Basic Usage</a><a class="docs-footer-nextpage" href="../understanding_results/">Understanding Results »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.16.0 on <span class="colophon-date" title="Wednesday 19 November 2025 19:22">Wednesday 19 November 2025</span>. Using Julia version 1.12.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
