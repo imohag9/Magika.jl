@@ -1,0 +1,3 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+Magika = "a454fd17-9086-4fe2-b9b0-9a1c0873c51f"
