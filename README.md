@@ -65,8 +65,44 @@ end
 # Create a configuration with specific settings
 m = MagikaConfig(
     prediction_mode=HIGH_CONFIDENCE,  # or MEDIUM_CONFIDENCE, BEST_GUESS
-    no_dereference=true               # Don't follow symlinks
+    no_dereference=true       # Don't follow symlinks                 
 )
+```
+
+## GPU usage
+
+For GPU usage the CUDA and cuDNN packages are required and the CUDA
+runtime needs to be set to 12.0 or a later 12.x version. To set this
+up, do
+
+```julia
+pkg> add CUDA cuDNN
+
+julia> import CUDA
+
+julia> CUDA.set_runtime_version!(v"12.0")
+```
+
+Then GPU inference is simply
+
+```julia
+import CUDA, cuDNN
+
+m = MagikaConfig(
+    prediction_mode=HIGH_CONFIDENCE,
+    execution_provider=:cuda
+)
+```
+
+CUDA provider options can be specified
+```julia
+m = MagikaConfig(
+    prediction_mode=HIGH_CONFIDENCE,
+    execution_provider=:cuda,
+    provider_options=(;cudnn_conv_algo_search=:HEURISTIC)
+
+)
+
 ```
 
 ## Result Structure

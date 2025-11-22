@@ -36,6 +36,8 @@ mutable struct MagikaConfig
     function MagikaConfig(;
         prediction_mode::PredictionMode = HIGH_CONFIDENCE,
         no_dereference::Bool = false,
+        execution_provider::Symbol=:cpu,
+        provider_options::Union{Nothing,NamedTuple}=nothing,
     )
 
         kb_path = joinpath(LazyArtifacts.artifact"magika_artifact","content_types_kb.min.json")
@@ -45,7 +47,13 @@ mutable struct MagikaConfig
         _model_config = _load_model_config(config_path)
 
         model_path = joinpath(LazyArtifacts.artifact"magika_artifact", "model.onnx")
-        _onnx_session = ONNXRunTime.load_inference(model_path)
+        if isnothing(provider_options)
+            _onnx_session = ONNXRunTime.load_inference(model_path; execution_provider=execution_provider)
+
+        else
+            _onnx_session = ONNXRunTime.load_inference(model_path; execution_provider=execution_provider,
+        provider_options=provider_options)
+        end
         
         _target_labels_space_map = Dict(
             (i-1) => label for (i, label) in enumerate(_model_config.target_labels_space)
