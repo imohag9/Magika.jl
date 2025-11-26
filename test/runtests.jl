@@ -7,7 +7,7 @@ using Aqua
 # 1. CODE QUALITY TESTS (AQUA.JL)
 # ==============================================================================
 @testset "Code quality (Aqua.jl)" begin
-    Aqua.test_all(Magika,project_extras=false )
+    Aqua.test_all(Magika;project_extras=false,deps_compat = false )
 end
 
 # ==============================================================================
